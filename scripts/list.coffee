@@ -1,4 +1,4 @@
-DATABASE_URL = "postgres://db:5432/d3j7svoq8l07ha"
+DATABASE_URL = "postgres://fapptvczzvewka:fNGq2xDWpeghPTy12PrvRZRa2b@ec2-54-243-190-100.compute-1.amazonaws.com:5432/d3j7svoq8l07ha"
 
 step1 = (err, client) ->
   	if err 
