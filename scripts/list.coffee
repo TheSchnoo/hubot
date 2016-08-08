@@ -1,7 +1,6 @@
 #process.env.DATABASE_URL="postgres://basic:home@localhost:5432/test"
 
 module.exports = (robot) ->
-	
 	pg = require('pg')
 	pg.defaults.ssl = true
 	
