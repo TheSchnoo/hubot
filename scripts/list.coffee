@@ -17,7 +17,5 @@ module.exports = (robot) ->
 		robot.respond /clear list/i, (res) ->
 			client.query('DELETE FROM groceries')
 			res.send("Did you remember to buy me treats?")
-			robot.respond /affirm/i, (res) ->
-				res.send("YAY!  I can't wait to see you!")
 
 		)
