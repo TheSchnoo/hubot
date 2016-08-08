@@ -1,17 +1,18 @@
+#process.env.DATABASE_URL="postgres://basic:home@localhost:5432/test"
+
 module.exports = (robot) ->
-	pg = require('pg') 
+	
+	pg = require('pg')
 	pg.defaults.ssl = true
-	pg.connect(process.env.DATABASE_URL, step1 = (err, client) ->
-  		if err 
-  			throw err
-  		console.log('Connected to postgres! Getting schemas...')
-  		client
-  		.query('SELECT table_schema,table_name FROM information_schema.tables;')
-    	.on('row', step2 = (row) ->
-			console.log(JSON.stringify(row))
 	
 	robot.respond /list/i, (res) ->
-		res.send "wes"
+		pg.connect(process.env.DATABASE_URL, step1 = (err, client) ->
+  			if err 
+  				throw err
+  			client.query('select name from groceries;').on('row', step2 = (row) -> res.send(row.name))
+  			)
 
-	robot.respond /add to list/i, (res) ->
-		res.send "list"
+	robot.respond /add to list (.*)/i, (res) ->
+		itemToAdd = res.match[1]
+		pg.connect(process.env.DATABASE_URL, step1 = (err, client) -> client.query("INSERT INTO groceries VALUES($1)", [itemToAdd]))
+		res.send("Added!")
