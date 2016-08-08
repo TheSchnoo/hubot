@@ -1,6 +1,6 @@
 module.exports = (robot) ->
 	pg = require('pg')
-	pg.defaults.ssl = true
+	#pg.defaults.ssl = true
 	affirm = ['yes', 'yeah', 'ok', 'kk', 'k', 'y']
 	pg.connect(process.env.DATABASE_URL, step1 = (err, client) ->
 		if err 
@@ -17,5 +17,4 @@ module.exports = (robot) ->
 		robot.respond /clear list/i, (res) ->
 			client.query('DELETE FROM groceries')
 			res.send("Did you remember to buy me treats?")
-
 		)
