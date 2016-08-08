@@ -6,5 +6,5 @@ module.exports = (robot) ->
 	robot.hear /treats/i, (res) ->
 		res.send("YAY TREATS!  I CAN'T WAIT TO SEE YOU!")
 
-	robot.hear /cute | pretty | small | fuzzy | moo/i (res) ->
+	robot.hear /cute|pretty|small|fuzzy|moo/i, (res) ->
 		res.send "img/moki.jpg"
