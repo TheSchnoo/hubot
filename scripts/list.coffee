@@ -23,12 +23,12 @@ module.exports = (robot) ->
 			itemToRemove = res.match[1]
 			if itemToRemove != ""
 				client.query("DELETE FROM groceries WHERE name=($1)", [itemToRemove])
-				res.send("Added!")
+				res.send("Removed!")
 
 		robot.respond /grocery help/i, (res) ->
 			res.send "I love keeping track of groceries!"
 			res.send "'list' means I'll tell you all the stuff to get"
-			res.send "'add to list <something>' means I'll add that something to list"
+			res.send "'add to list <something>' means I'll add that something to the list"
 			res.send "'remove <something>' means I'll remove it from the list"
 			res.send "'clear list' means I'll remove everything from the list"
 		)
