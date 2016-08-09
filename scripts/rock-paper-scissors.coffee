@@ -65,7 +65,6 @@ module.exports = (robot) ->
 			func = () ->
 				if choices.length > 3
 					winner = decideWinner(choices)
-					console.log(winner)
 					if winner == 4
 						res.send("Tie")
 					else
@@ -77,7 +76,7 @@ module.exports = (robot) ->
 							if err
 								console.log("Error")
 					else 
-						message = "You lost..."
+						message = "You didn't win..."
 						url = urlBase + "&channel=@" + player2 + "&text=" + message
 						robot.http(url).get() (err, res, body) ->
 							if err
