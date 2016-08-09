@@ -43,6 +43,9 @@ module.exports = (robot) ->
 
 	robot.respond /scissors/i, (res) ->
 		pushChoice(res.message.user.name, 'scissors', choices, player1, player2)
+
+	robot.respond /dynamite/i, (res) ->
+		res.send(":bomb: :boom:")
 	  	
 	robot.respond /rps (.*)/i, (res) ->
 		choices = []
@@ -61,8 +64,12 @@ module.exports = (robot) ->
 		res.send(player1 + " challenges @" + player2 + " to Rock, Paper, Scissors!")
 		res.send("Players, enter your choices!")
 		res.send("(Message me with 'rock', 'paper', or 'scissors')")
+		counter = 0
 		go = setInterval(
 			func = () ->
+				if counter > 5
+					res.send("You guys aren't any fun")
+					clearInterval(go)
 				if choices.length > 3
 					winner = decideWinner(choices)
 					if winner == 4
@@ -85,6 +92,7 @@ module.exports = (robot) ->
 					clearInterval(go)
 				else
 					res.send "waiting..."
+					counter = counter + 1
 			# TODO add a listener for when choices is full.  This would be more responsive.
 		, interval)
 		
