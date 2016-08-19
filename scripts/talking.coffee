@@ -10,6 +10,6 @@ module.exports = (robot) ->
 		res.send("I can't wait to see you!")
 		res.send(":moki_smile:")
 
-	robot.catchAll (res) ->
-		if res.message.user.name != robot.name
-			res.send("Too busy...napping")
+#	robot.catchAll (res) ->
+#		if res.message.user.name != robot.name
+#			res.send("Too busy...napping")
