@@ -1,6 +1,6 @@
 module.exports = (robot) ->
 
-  robot.respond /sc\s*(.*):*\s*(.*)/i, (res) ->
+  robot.respond /sc\s*(.*):*\s+(.*)/i, (res) ->
     time = res.match[1]
     date = res.match[2]
     data = JSON.stringify({
