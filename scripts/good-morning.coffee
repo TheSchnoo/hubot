@@ -1,3 +1,5 @@
+cronJob = require('cron').CronJob
+
 module.exports = (robot) ->
 
   room = "#general"
@@ -5,7 +7,6 @@ module.exports = (robot) ->
   goodMorning = () ->
     robot.messageRoom room, 'Good morning!  I\'m thinking about you guys!'
 
-  cronJob = require('cron').CronJob
   tz = 'America/Los_Angeles'
   console.log(room)
   # new cronJob('0 9 * * *', goodMorning, null, true, tz)
