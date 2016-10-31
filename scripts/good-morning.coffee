@@ -3,8 +3,7 @@ module.exports = (robot) ->
   room = "#general"
 
   goodMorning = () ->
-    console.log('count')
-    robot.messageRoom room, 'I will nag you every 5 minutes'
+    robot.messageRoom room, 'Good morning!  I\'m thinking about you guys!'
 
   cronJob = require('cron').CronJob
   tz = 'America/Los_Angeles'
