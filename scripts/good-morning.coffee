@@ -10,6 +10,5 @@ module.exports = (robot) ->
     robot.emit 'slack-attachment', msgData
 
   tz = 'America/Los_Angeles'
-  console.log("room = #{room}")
   new cronJob('0 9 * * *', goodMorning, null, true, tz)    # Set time for production
   # new cronJob('*/1 * * * *', goodMorning, null, true, tz)  # Every minute for testing
