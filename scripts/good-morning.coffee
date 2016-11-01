@@ -3,10 +3,8 @@ cronJob = require('cron').CronJob
 module.exports = (robot) ->
 
   goodMorning = () ->
-    console.log("moki")
-    room = "#test"
     msgData =
-      channel: room
+      channel: "#general"
       text: "Good morning!  I\'m thinking about you guys!"
 
     robot.emit 'slack-attachment', msgData
